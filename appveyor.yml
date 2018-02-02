@@ -1,0 +1,26 @@
+environment:
+
+  matrix:
+
+    - PYTHON: "C:\\Python36-x64"
+      PYTHON_VERSION: "3.6.4"
+      PYTHON_ARCH: "64"
+
+platform: x64
+
+install:
+
+  - cmd: pip install flake8
+  - cmd: pip install pydocstyle
+  - cmd: pip install pyroma
+  - cmd: pip install vulture
+
+build_script:
+
+  # Needs Appveyor console set, see
+  # https://stackoverflow.com/a/48093971/5951529
+  - cmd: set PYTHONIOENCODING=utf-8
+  - cmd: flake8 .
+  - cmd: pydocstyle
+  - cmd: pyroma .
+  - cmd: vulture .

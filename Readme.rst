@@ -2,9 +2,16 @@
     :target: https://travis-ci.org/Kristinita/Erichek
     :alt: Travis CI
 
+.. AppVeyor badge incorrect displayed in http://rst.ninjs.org online reStructuredText Viewer
+
+.. image:: https://ci.appveyor.com/api/projects/status/gscnxa6gj2oej1gn?svg=true
+    :target: https://ci.appveyor.com/project/Kristinita/erichek
+    :alt: AppVeyor
+
 .. image:: https://lintly.com/gh/Kristinita/Erichek/badge.svg
     :target: https://lintly.com/gh/Kristinita/Erichek/
     :alt: Lintly
+
 
 .. Bold text in links
 .. https://stackoverflow.com/a/4836544/5951529
