@@ -1,0 +1,7 @@
+{
+  "name": "Erichek",
+  "version": "0.0.0",
+  "scripts": {
+    "release": "release-it"
+  }
+}

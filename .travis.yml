@@ -1,0 +1,13 @@
+language: python
+python:
+  - "3.6.4"
+install:
+  - pip install flake8
+  - pip install pydocstyle
+  - pip install pyroma
+  - pip install vulture
+script:
+  - flake8 .
+  - pydocstyle
+  - pyroma .
+  - vulture .
