@@ -17,7 +17,7 @@ install:
 
 build_script:
 
-  # Needs Appveyor console set, see
+  # Needs AppVeyor console set, see:
   # https://stackoverflow.com/a/48093971/5951529
   - cmd: set PYTHONIOENCODING=utf-8
   - cmd: flake8 .
