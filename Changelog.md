@@ -1,3 +1,13 @@
+#### 0.1.1 (2018-02-04)
+
+##### Chores
+
+* **badges:**  Add new badges ([79d861a9](https://github.com/Kristinita/Erichek/commit/79d861a9741bdcf14ed4fefcb95af64e23cb3ebe))
+
+##### Code Style Changes
+
+* **setup.cfg:**  Remove quotes from description variable ([af40ba04](https://github.com/Kristinita/Erichek/commit/af40ba045d13da5fa8687515b318a131f9da7017))
+
 #### 0.1.0 (2018-02-04)
 
 ##### Build System / Dependencies
