@@ -1,3 +1,18 @@
+.. Active repository status — http://www.repostatus.org
+
+.. image:: http://www.repostatus.org/badges/latest/active.svg
+   :alt: Project Status: Active – The project has reached a stable, usable state and is being actively developed.
+   :target: http://www.repostatus.org/#active
+
+.. PyPI version — https://badge.fury.io/py/
+
+.. image:: https://badge.fury.io/py/erichek.svg
+    :target: https://badge.fury.io/py/erichek
+    :alt: PyPI version
+
+.. image:: https://img.shields.io/pypi/pyversions/erichek.svg
+	:alt: Python version
+
 .. image:: https://travis-ci.org/Kristinita/Erichek.svg?branch=master
     :target: https://travis-ci.org/Kristinita/Erichek
     :alt: Travis CI
