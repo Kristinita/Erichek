@@ -1,5 +1,5 @@
 {
-    "buildCommand": "changelog -u https:\/\/github.com\/Kristinita\/Erichek -f Changelog.md && sed -i 's\/^version = .*$\/version = ${version}\/g' setup.cfg && python setup.py sdist && twine upload dist\/*",
+    "buildCommand": "changelog -u https:\/\/${repo.host}\/${repo.repository} -f Changelog.md && sed -i 's\/^version = .*$\/version = ${version}\/g' setup.cfg && python setup.py sdist && twine upload dist\/*",
     "changelogCommand": "changelog -f -",
     "github": {
         "release": true,
