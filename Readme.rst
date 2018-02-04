@@ -2,15 +2,23 @@
     :target: https://travis-ci.org/Kristinita/Erichek
     :alt: Travis CI
 
-.. AppVeyor badge incorrect displayed in http://rst.ninjs.org online reStructuredText Viewer
+.. AppVeyor badge incorrect displayed in http://rst.ninjs.org — online reStructuredText Viewer
 
 .. image:: https://ci.appveyor.com/api/projects/status/gscnxa6gj2oej1gn?svg=true
     :target: https://ci.appveyor.com/project/Kristinita/erichek
     :alt: AppVeyor
 
+.. image:: https://circleci.com/gh/Kristinita/Erichek.svg?style=svg
+    :target: https://circleci.com/gh/Kristinita/Erichek
+    :alt: Circle CI
+
 .. image:: https://lintly.com/gh/Kristinita/Erichek/badge.svg
     :target: https://lintly.com/gh/Kristinita/Erichek/
     :alt: Lintly
+
+.. image:: https://img.shields.io/badge/commitizen-friendly-brightgreen.svg
+	:target: http://commitizen.github.io/cz-cli/
+	:alt: Commitizen-friendly
 
 
 .. Bold text in links
