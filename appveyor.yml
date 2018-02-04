@@ -5,19 +5,26 @@ environment:
     - PYTHON: "C:\\Python36-x64"
       PYTHON_VERSION: "3.6.4"
       PYTHON_ARCH: "64"
-      PIP: "C:\\Python36-x64\\Scripts\\pip"
 
 platform: x64
 
 install:
 
-  # Needs %PIP% instead pip, because Python 2 by default, see:
+  # Needs, because will get messages as:
+  # «flake8 is not recognized»
+  # https://github.com/ogrisel/python-appveyor-demo/blob/master/appveyor.yml
+  # Python 2 by default, see:
   # https://www.appveyor.com/docs/build-environment/#python
   # https://ci.appveyor.com/project/Kristinita/erichek/build/1.0.3
-  - cmd: "%PIP% install flake8"
-  - cmd: "%PIP% install pydocstyle"
-  - cmd: "%PIP% install pyroma"
-  - cmd: "%PIP% install vulture"
+  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
+
+  - cmd: pip install flake8
+  - cmd: pip install pydocstyle
+  - cmd: pip install pyroma
+  # Needs, because pyroma works incorrect in old setuptools versions:
+  # https://github.com/regebro/pyroma/issues/16#issuecomment-362795949
+  - cmd: pip install -U setuptools
+  - cmd: pip install vulture
 
 build_script:
 
