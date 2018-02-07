@@ -1,3 +1,21 @@
+#### 0.2.0 (2018-02-07)
+
+##### Build System / Dependencies
+
+* **wheel:**  Migrate to Wheel ([6ce8957b](https://github.com/Kristinita/Erichek/commit/6ce8957ba8bc4800b1f6ed622581cf769862b629))
+
+##### Continuous Integration
+
+* **circleci:**  Fix Circle CI build ([9fa65283](https://github.com/Kristinita/Erichek/commit/9fa65283b38fc5a53bf9a3fec5e7fafffa62324d))
+
+##### Documentation Changes
+
+* **badge:**  Add Wheel badge ([fe389db9](https://github.com/Kristinita/Erichek/commit/fe389db94c00b68229e842af0341a43efb4b4f72))
+
+##### Bug Fixes
+
+* **examples:**  Remove unexpected files ([bf92f432](https://github.com/Kristinita/Erichek/commit/bf92f4325004720b2a98c1a7f5522f745026a287))
+
 #### 0.1.1 (2018-02-04)
 
 ##### Chores
