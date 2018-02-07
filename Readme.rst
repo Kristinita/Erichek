@@ -6,12 +6,15 @@
 
 .. PyPI version — https://badge.fury.io/py/
 
-.. image:: https://badge.fury.io/py/erichek.svg
+.. image:: https://badge.fury.io/py/erichek.svg?style=plastic
     :target: https://badge.fury.io/py/erichek
     :alt: PyPI version
 
-.. image:: https://img.shields.io/pypi/pyversions/erichek.svg
+.. image:: https://img.shields.io/pypi/pyversions/erichek.svg?style=plastic
 	:alt: Python version
+
+.. image:: https://img.shields.io/pypi/wheel/erichek.svg?style=plastic
+	:alt: Wheel
 
 .. image:: https://travis-ci.org/Kristinita/Erichek.svg?branch=master
     :target: https://travis-ci.org/Kristinita/Erichek
