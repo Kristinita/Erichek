@@ -1,3 +1,22 @@
+#### 0.2.1 (2018-02-09)
+
+##### Bug Fixes
+
+* **clize:**  Fix erichek --version ([2aedc8d0](https://github.com/Kristinita/Erichek/commit/2aedc8d0c414046e14f43b69fa4244ac4aa0051d))
+
+##### Refactors
+
+* **release-it:**  Add npm.publish false to configuration ([a44ea49f](https://github.com/Kristinita/Erichek/commit/a44ea49feb7c4e1bb45062fe419ffc826bc3dc8c))
+
+##### Code Style Changes
+
+* **badges:**  Make badges inline elements ([754b4550](https://github.com/Kristinita/Erichek/commit/754b4550f9583aef66946600d4f75de858532c29))
+* **filenames:**
+  *  Merge new filenames to master branch ([099731b7](https://github.com/Kristinita/Erichek/commit/099731b774e12cdb9456cea241596b3bdd8d6c13))
+  *  README.rst, not README.RST ([760e2428](https://github.com/Kristinita/Erichek/commit/760e2428b87f055708af9ed178015d76a507f1a2))
+  *  Push renamed files to GitHub ([588336d7](https://github.com/Kristinita/Erichek/commit/588336d72a91dfb1742a688390852ac22519b5d4))
+  *  Capital letters for some filenames ([635fa180](https://github.com/Kristinita/Erichek/commit/635fa180e4cca95b38b92f06b018b9af1dc907d1))
+
 #### 0.2.0 (2018-02-07)
 
 ##### Build System / Dependencies
