@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Author: SashaChernykh
 # @Date: 2018-01-22 08:41:23
-# @Last Modified time: 2018-02-01 20:50:08
+# @Last Modified time: 2018-03-06 20:02:11
 """A setuptools based setup module.
 
 See:
@@ -22,8 +22,6 @@ install_reqs = parse_requirements('requirements.txt', session='hack')
 # e.g. ['django==1.5.1', 'mezzanine==1.4.6']
 reqs = [str(ir.req) for ir in install_reqs]
 
-# For Markdown README
-# https://stackoverflow.com/a/26737672/5951529
 setup(
     install_requires=reqs,
     # packages=find_packages()

@@ -20,6 +20,7 @@ install:
 
   - cmd: pip install flake8
   - cmd: pip install pydocstyle
+  - cmd: pip install pyfancy
   - cmd: pip install pyroma
   # Needs, because pyroma works incorrect in old setuptools versions:
   # https://github.com/regebro/pyroma/issues/16#issuecomment-362795949
