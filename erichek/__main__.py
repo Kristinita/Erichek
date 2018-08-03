@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Author: SashaChernykh
 # @Date: 2018-01-22 07:32:05
-# @Last Modified time: 2018-02-01 19:15:27
+# @Last Modified time: 2018-08-03 13:38:17
 """Run tests.
 
 Main file for running Erichek tests.
@@ -77,7 +77,7 @@ def main():
 
     # If all instead of multiple if and:
     # https://stackoverflow.com/a/9504681/5951529
-    if all([eric_body.BODY_EXIST, eric_encoding.ENCODING_WINDOWS_1251, eric_asterisks.ASTERISKS_EXISTS,
+    if all([eric_body.BODY_EXIST, eric_encoding.ENCODING_UTF_8, eric_asterisks.ASTERISKS_EXISTS,
             eric_head.HEAD_DATA]):
         green_foreground(
             "Congratulations! You haven't errors in your packages!")

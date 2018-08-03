@@ -8,5 +8,9 @@
     "npm": {
         "publish": false
     },
-    "safeBump": false
+    "requireCleanWorkingDir": false,
+    "safeBump": false,
+    "src": {
+    	"addUntrackedFiles": true
+    }
 }

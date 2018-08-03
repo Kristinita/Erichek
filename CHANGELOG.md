@@ -1,3 +1,13 @@
+#### 0.3.1 (2018-08-03)
+
+##### Continuous Integration
+
+* **travis:**  Test CI after pyfancy publishing ([89050bb7](https://github.com/Kristinita/Erichek/commit/89050bb709bff6c44bf9e9dd07bcf69b99ae872a))
+
+##### New Features
+
+* **version:**  update ([94b3f4d3](https://github.com/Kristinita/Erichek/commit/94b3f4d3e15114b9062d6ce1b1090e62a2258656))
+
 #### 0.2.1 (2018-02-09)
 
 ##### Bug Fixes

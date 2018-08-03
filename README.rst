@@ -35,10 +35,6 @@
 	:target: https://circleci.com/gh/Kristinita/Erichek
 	:alt: Circle CI
 
-.. image:: https://lintly.com/gh/Kristinita/Erichek/badge.svg?style=plastic
-	:target: https://lintly.com/gh/Kristinita/Erichek/
-	:alt: Lintly
-
 .. image:: https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=plastic
 	:target: http://commitizen.github.io/cz-cli/
 	:alt: Commitizen-friendly

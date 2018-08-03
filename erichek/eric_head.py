@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Author: SashaChernykh
 # @Date: 2018-01-26 10:06:04
-# @Last Modified time: 2018-01-27 07:40:52
+# @Last Modified time: 2018-08-03 17:00:06
 """Check files for correct head metadata.
 
 Check, that files contains «Описание пакета:», «Процесс тренировки:» and so on.
@@ -73,7 +73,7 @@ def eric_head_function():
         filename_without_path = os.path.basename(filename)
 
         # File content in folder
-        each_file_in_folder = open(filename, encoding='windows-1251').read()
+        each_file_in_folder = open(filename, encoding='utf-8').read()
 
         # Find head data
         if 'Описание пакета:' in each_file_in_folder:

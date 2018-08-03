@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Author: SashaChernykh
 # @Date: 2018-01-22 07:23:52
-# @Last Modified time: 2018-01-26 17:23:32
+# @Last Modified time: 2018-08-03 16:51:06
 """Check files for body.
 
 Check, contains files of directory <body> or no.
@@ -58,7 +58,7 @@ def eric_body_function():
         # https://stackoverflow.com/a/31492722/5951529
         # https://github.com/travis-ci/travis-ci/issues/8993#issuecomment-354674238
         # https://github.com/travis-ci/travis-ci/issues/8993#issuecomment-354681085
-        if "<body>" in open(filename, encoding='windows-1251').read():
+        if "<body>" in open(filename, encoding='utf-8').read():
             LOG.debug(filename_without_path + " contains <body>")
 
         else:
