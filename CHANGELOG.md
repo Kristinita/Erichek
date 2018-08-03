@@ -1,3 +1,9 @@
+#### 0.3.2 (2018-08-03)
+
+##### Continuous Integration
+
+* **ci:**  fix typos in config file ([555484f9](https://github.com/Kristinita/Erichek/commit/555484f9c58ef0ec8b2f606278bd87dbb04a26ce))
+
 #### 0.3.1 (2018-08-03)
 
 ##### Continuous Integration
