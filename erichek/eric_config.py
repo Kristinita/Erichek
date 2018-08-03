@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Author: Kristinita
 # @Date: 2018-01-02 08:35:59
-# @Last Modified time: 2018-01-26 17:30:14
+# @Last Modified time: 2018-08-03 21:08:01
 # For pydocstyle:
 # D301: Use r""", if any backslashes in a docstring
 r"""Patorjk-HeX ASCII-art font.
@@ -37,7 +37,7 @@ import sys
 # «glob.glob('../*.txt')» in parent folder, not «glob.glob('../*.txt')»!
 ALL_TXT_IN_ERIC_ROOM_WIHTOUT_SUBFOLDERS = glob.glob('./*.txt')
 
-VERSION = "0.1"
+VERSION = "0.3.1"
 
 
 def version():

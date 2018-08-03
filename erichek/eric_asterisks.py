@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Author: SashaChernykh
 # @Date: 2018-01-22 19:58:48
-# @Last Modified time: 2018-02-02 08:37:57
+# @Last Modified time: 2018-08-03 16:54:46
 """Asterisks Checker.
 
 Check, if asterisks contains in each line of package for Eric room.
@@ -55,7 +55,7 @@ def eric_asterisks_function():
         filename_without_path = os.path.basename(filename)
         # Lines to list
         # https://stackoverflow.com/a/3277515/5951529
-        with open(filename, encoding='windows-1251') as filename_as_list:
+        with open(filename, encoding='utf-8') as filename_as_list:
             submit_file_as_list = filename_as_list.readlines()
             # New list after <body>
             # https://stackoverflow.com/a/35880897/5951529
