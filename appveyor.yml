@@ -18,6 +18,9 @@ install:
   # https://ci.appveyor.com/project/Kristinita/erichek/build/1.0.3
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
 
+  # pip upgading required, because otherwise AppVeyor failed, compare:
+  # https://ci.appveyor.com/project/Kristinita/erichek/build/1.0.34
+  # https://ci.appveyor.com/project/Kristinita/erichek/build/1.0.33
   - cmd: python -m pip install --upgrade pip
   - cmd: pip install flake8
   - cmd: pip install pydocstyle

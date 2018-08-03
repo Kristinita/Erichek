@@ -1,11 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Author: Kristinita
 # @Date: 2018-01-02 08:35:59
-<<<<<<< HEAD
-# @Last Modified time: 2018-08-03 21:43:05
-=======
-# @Last Modified time: 2018-08-03 21:08:01
->>>>>>> SashaDevelop
+# @Last Modified time: 2018-08-03 21:51:25
 # For pydocstyle:
 # D301: Use r""", if any backslashes in a docstring
 r"""Patorjk-HeX ASCII-art font.
