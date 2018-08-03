@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Author: SashaChernykh
 # @Date: 2018-01-22 08:41:23
-# @Last Modified time: 2018-03-06 20:02:11
+# @Last Modified time: 2018-08-03 20:59:37
 """A setuptools based setup module.
 
 See:
@@ -14,7 +14,13 @@ https://github.com/pypa/sampleproject
 from setuptools import setup
 
 # Install dependencies from requirements.txt
-from pip.req import parse_requirements
+# https://stackoverflow.com/a/49867265/5951529
+# For pip >= 10
+try:
+    from pip._internal.req import parse_requirements
+# For pip <= 9.0.3
+except ImportError:
+    from pip.req import parse_requirements
 
 install_reqs = parse_requirements('requirements.txt', session='hack')
 

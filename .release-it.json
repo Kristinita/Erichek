@@ -8,5 +8,8 @@
     "npm": {
         "publish": false
     },
-    "safeBump": false
+    "safeBump": false,
+    "src": {
+    	"addUntrackedFiles": true
+    }
 }
