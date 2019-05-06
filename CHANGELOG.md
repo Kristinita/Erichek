@@ -1,3 +1,9 @@
+#### 0.4.0 (2019-05-06)
+
+##### Refactors
+
+* **python:** big refactoring ([4f7c3af3](https://github.com/Kristinita/Erichek/commit/4f7c3af3dc47694b16cf7edfc1a40adba95b9037))
+
 #### 0.3.2 (2018-08-03)
 
 ##### Continuous Integration

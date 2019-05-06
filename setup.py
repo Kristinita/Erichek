@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Author: SashaChernykh
 # @Date: 2018-01-22 08:41:23
-# @Last Modified time: 2018-08-03 20:59:37
+# @Last Modified time: 2019-05-06 10:50:15
 """A setuptools based setup module.
 
 See:
@@ -22,14 +22,14 @@ try:
 except ImportError:
     from pip.req import parse_requirements
 
-install_reqs = parse_requirements('requirements.txt', session='hack')
+INSTALL_REQS = parse_requirements('requirements.txt', session='hack')
 
 # reqs is a list of requirements
 # e.g. ['django==1.5.1', 'mezzanine==1.4.6']
-reqs = [str(ir.req) for ir in install_reqs]
+REQS = [str(ir.req) for ir in INSTALL_REQS]
 
 setup(
-    install_requires=reqs,
+    install_requires=REQS,
     # packages=find_packages()
     # Although 'package_data' is the preferred approach, in some case you may
     # need to place data files outside of your packages. See:
