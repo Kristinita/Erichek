@@ -20,12 +20,13 @@ install:
 - 'pip3 install -U --force-reinstall --no-binary :all: gevent'
 # Needs “-U”, because pyroma works incorrect in old setuptools versions:
 # https://github.com/regebro/pyroma/issues/16#issuecomment-362795949
-- pip3 install -U flake8 pydocstyle pylint_runner pyroma setuptools twine vulture wheel
-- pip install -r requirements.txt
+# [BUG] Disable pylint_runner:
+# https://ci.appveyor.com/project/Kristinita/erichek#L211
+- pip3 install -U flake8 pydocstyle pyroma setuptools twine vulture wheel
+- pip3 install -r requirements.txt
 
 build_script:
 - flake8 .
 - pydocstyle
-- pylint_runner
 - pyroma -n 10 .
 - vulture .

@@ -46,4 +46,5 @@ deploy:
       j6jAVom8ThojWbgzukS+XvuJlaPUI4bOU52KLxzEhgGNRU5I7W8+0fTXNFKbqE="
   on:
     tags: true
+    branch: master
   distributions: bdist_wheel
