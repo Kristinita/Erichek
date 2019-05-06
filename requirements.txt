@@ -1,8 +1,15 @@
-   chardet
-   clize
-   colorama
-   logbook
-   pyfancy
-   pyfiglet
-   regex
-   termcolor
+beautifulsoup4
+chardet
+clize
+colorama
+delegator.py
+fake_useragent
+grequests
+logbook
+lxml
+pyfancy
+pyfiglet
+pyperclip
+regex
+sorcery
+termcolor

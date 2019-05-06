@@ -1,41 +1,30 @@
-environment:
-
-  matrix:
-
-    - PYTHON: "C:\\Python36-x64"
-      PYTHON_VERSION: "3.6.4"
-      PYTHON_ARCH: "64"
-
 platform: x64
 
+clone_depth: 1
+
+environment:
+  PYTHON: C:\Python37-x64
+
+init:
+- SET PATH=%PATH%;%PYTHON%;%PYTHON%\Scripts
+- set PYTHONIOENCODING=utf-8
+
 install:
-
-  # Needs, because will get messages as:
-  # «flake8 is not recognized»
-  # https://github.com/ogrisel/python-appveyor-demo/blob/master/appveyor.yml
-  # Python 2 by default, see:
-  # https://www.appveyor.com/docs/build-environment/#python
-  # https://ci.appveyor.com/project/Kristinita/erichek/build/1.0.3
-  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
-
-  # pip upgading required, because otherwise AppVeyor failed, compare:
-  # https://ci.appveyor.com/project/Kristinita/erichek/build/1.0.34
-  # https://ci.appveyor.com/project/Kristinita/erichek/build/1.0.33
-  - cmd: python -m pip install --upgrade pip
-  - cmd: pip install flake8
-  - cmd: pip install pydocstyle
-  - cmd: pip install pyroma
-  # Needs, because pyroma works incorrect in old setuptools versions:
-  # https://github.com/regebro/pyroma/issues/16#issuecomment-362795949
-  - cmd: pip install -U setuptools
-  - cmd: pip install vulture
+# pip upgading required, because otherwise AppVeyor failed, compare:
+# https://ci.appveyor.com/project/Kristinita/erichek/build/1.0.34
+# https://ci.appveyor.com/project/Kristinita/erichek/build/1.0.33
+- python -m pip install --upgrade pip
+# Temporary hack for Gevent:
+# https://github.com/getlogbook/logbook/issues/270
+# https://github.com/gevent/gevent/issues/1260
+- 'pip install -U --force-reinstall --no-binary :all: gevent'
+# Needs “-U”, because pyroma works incorrect in old setuptools versions:
+# https://github.com/regebro/pyroma/issues/16#issuecomment-362795949
+- pip install -U flake8 pydocstyle pylint_runner pyroma setuptools twine vulture wheel
 
 build_script:
-
-  # Needs AppVeyor console set, see:
-  # https://stackoverflow.com/a/48093971/5951529
-  - cmd: set PYTHONIOENCODING=utf-8
-  - cmd: flake8 .
-  - cmd: pydocstyle
-  - cmd: pyroma .
-  - cmd: vulture .
+- flake8 .
+- pydocstyle
+- pylint_runner
+- pyroma -n 10 .
+- vulture .

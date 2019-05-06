@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Author: SashaChernykh
 # @Date: 2018-01-22 18:30:38
-# @Last Modified time: 2018-08-03 13:13:24
+# @Last Modified time: 2019-05-04 08:11:18
 """Encoding checker.
 
 Check, that files in Windows-1251 encoding.
@@ -10,44 +10,18 @@ Bugs:
     1. if no Cyrillic symbols in a file, chardet detect file encoding as ASCII;
     2. chardet can detect Windows-1251 as MacCyrillic.
 """
-import chardet
 import codecs
-import logbook
-import os
 
-# Do not use «from <module> import *»
-# http://bit.ly/2CuW5GS
-from erichek.eric_config import ALL_TXT_IN_ERIC_ROOM_WIHTOUT_SUBFOLDERS
-from pyfancy.pyfancy import pyfancy
+import chardet
 
-LOG = logbook.Logger("eric_encoding logbook")
+from erichek.eric_config import ALL_TXT_IN_ERIC_ROOM_WITHOUT_SUBFOLDERS
+from erichek.eric_config import pyfancy_critical
+from erichek.eric_config import pyfancy_debug
+from erichek.eric_config import pyfancy_notice
 
-
+# [DEPRECATED] Use yield and return for variables passing.
 # Flags, see https://www.computerhope.com/jargon/f/flag.htm
 # https://stackoverflow.com/a/48052480/5951529
-ENCODING_UTF_8 = True
-
-
-def red_background(redtext):
-    """Red foreground for error messages.
-
-    Red foreground for error messages.
-
-    Arguments:
-        redtext {str} -- text, which will be colored in red.
-    """
-    LOG.error(pyfancy().red_bg().bold(redtext))
-
-
-def green_foreground(greentext):
-    """Green foreground for notice messages.
-
-    Green foreground for error messages.
-
-    Arguments:
-        greentext {str} -- text, which will be colored in green.
-    """
-    LOG.notice(pyfancy().green().bold(greentext))
 
 
 def eric_encoding_function():
@@ -59,80 +33,38 @@ def eric_encoding_function():
     """
     # Get list all filenames in a directory
     # https://stackoverflow.com/a/1120736/5951529
-    for filename in ALL_TXT_IN_ERIC_ROOM_WIHTOUT_SUBFOLDERS:
+    for filename_pylint in ALL_TXT_IN_ERIC_ROOM_WITHOUT_SUBFOLDERS:
 
-        filename_without_path = os.path.basename(filename)
-
-        # Not 100%, see https://stackoverflow.com/a/436299/5951529
-        # Can doesn't work for Latin packages
-        # Check decoding — http://bit.ly/2C3xSUD
+        # Chardet not 100% accuracy guarantees:
+        # https://stackoverflow.com/a/436299/5951529
+        # Check:
+        # https://chardet.readthedocs.io/en/latest/usage.html#example-using-the-detect-function
         # https://stackoverflow.com/a/37531241/5951529
-        rawdata = open(filename, "rb").read()
-        chardet_data = chardet.detect(rawdata)
-        # Python dictionary
-        fileencoding = (chardet_data['encoding'])
+        # r+b mode is open the binary file in read or write mode.
+        # https://stackoverflow.com/a/15746971/5951529
+        with codecs.open(filename_pylint, "r+b") as opened_file:
+            bytes_file = opened_file.read()
+            chardet_data = chardet.detect(bytes_file)
+            fileencoding = (chardet_data['encoding'])
 
-        # [DEPRECATED] I migrate from Cyrillic 1251 to UTF-8
-        # chardet_confidence = (chardet_data['confidence'])
-        # # Needs MacCyrillic, because chardet can check Windows-1251
-        # # as MacCyrillic
-        # if fileencoding == 'windows-1251':
-        #     LOG.debug(filename_without_path + " in windows-1251 encoding")
-        # # Integer to string:
-        # # https://stackoverflow.com/a/961638/5951529
-        # elif fileencoding == 'MacCyrillic':
-        #     LOG.info(pyfancy().green("Encoding of file " + filename_without_path +
-        #                              " chardet detect as MacCyrillic with confidence " +
-        #                              str(chardet_confidence)))
-        # else:
-        #     # Convert file from UTF-8 to Cyrillic 1251
-        #     # https://stackoverflow.com/q/19932116/5951529
-        #     with codecs.open(filename, "r", "utf-8") as file_for_conversion:
-        #         read_file_for_conversion = file_for_conversion.read()
-        #     with codecs.open(filename, "w", "windows-1251") as file_for_conversion:
-        #         if read_file_for_conversion:
-        #             file_for_conversion.write(read_file_for_conversion)
-        #     red_background(filename_without_path +
-        #                    " in " +
-        #                    fileencoding +
-        #                    ", not in Windows-1251 encoding! Please, save " +
-        #                    filename_without_path + " in Windows-1251 encoding.")
-        #     green_foreground("If encoding of file " + filename_without_path +
-        #                      " is UTF-8 and you see message above in local wwtd testing, " +
-        #                      filename_without_path +
-        #                      " automatically will converted from UTF-8 to Windows-1251.")
-        #     global ENCODING_WINDOWS_1251
-        #     ENCODING_WINDOWS_1251 = False
-        if fileencoding == 'utf-8':
-            LOG.debug(filename_without_path + " in UTF-8 encoding")
-        else:
-            # Convert file from Cyrillic 1251 to UTF-8
-            # https://stackoverflow.com/q/19932116/5951529
-            with codecs.open(filename, "r", "windows-1251") as file_for_conversion:
-                read_file_for_conversion = file_for_conversion.read()
-            with codecs.open(filename, "w", "utf-8") as file_for_conversion:
-                if read_file_for_conversion:
-                    file_for_conversion.write(read_file_for_conversion)
-            red_background(filename_without_path +
-                           " in " +
-                           fileencoding +
-                           ", not in UTF-8 encoding! Please, save " +
-                           filename_without_path + " in UTF-8 encoding.")
-            green_foreground("If encoding of file " + filename_without_path +
-                             " is Windows-1251 and you see message above in local wwtd testing, " +
-                             filename_without_path +
-                             " automatically will converted from Windows-1251 to UTF-8.")
-            global ENCODING_UTF_8
-            ENCODING_UTF_8 = False
-
-
-def eric_encoding_summary():
-    """Report, all files in UTF-8 or no."""
-    eric_encoding_function()
-    if ENCODING_UTF_8:
-        green_foreground(
-            "All files in UTF-8 encoding")
-
-    if not ENCODING_UTF_8:
-        red_background(
-            "One or more your files not in UTF-8 encoding. Please, convert it (them) to UTF-8.")
+            # [DEPRECATED] Migrating from Cyrillic 1251 to UTF-8
+            # Needs MacCyrillic, because chardet can check Windows-1251
+            # as MacCyrillic
+            if fileencoding == 'utf-8':
+                pyfancy_debug(f"{filename_pylint}: UTF-8 encoding")
+            else:
+                # Decode:
+                # https://stackoverflow.com/a/38102444/5951529
+                # Encode:
+                # https://stackoverflow.com/a/37376668/5951529
+                encoded_file = bytes_file.decode(fileencoding).encode()
+                pyfancy_critical(f"{filename_pylint}: {fileencoding} encoding, not UTF-8!")
+                pyfancy_notice(f"{filename_pylint}: encoding automatically converted from {fileencoding} to UTF-8")
+                # Seek:
+                # https://stackoverflow.com/a/2424410/5951529
+                # https://stackoverflow.com/a/11696554/5951529
+                opened_file.seek(0)
+                opened_file.write(encoded_file)
+                # Doesn't need truncate in write mode:
+                # https://stackoverflow.com/a/4562477/5951529
+                yield False

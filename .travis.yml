@@ -1,15 +1,45 @@
+git:
+  depth: 1
+
 language: python
-python:
-  - "3.6.4"
+
+dist: xenial
+
+python: 3.7
+
 install:
-  - pip install flake8
-  - pip install pydocstyle
-  - pip install pyfancy
-  - pip install pyroma
-  - pip install -U setuptools
-  - pip install vulture
+# [NOTE] setuptools, twine and wheel update, that README.md works correct:
+# https://stackoverflow.com/a/26737258/5951529
+# https://dustingram.com/articles/2018/03/16/markdown-descriptions-on-pypi/
+- pip install -U flake8 pydocstyle pylint_runner pyroma setuptools twine vulture wheel
+
 script:
-  - flake8 .
-  - pydocstyle
-  - pyroma .
-  - vulture .
+- flake8 .
+- pydocstyle
+# [INFO] pylint_runner for run pylint recursively:
+# https://stackoverflow.com/a/52050898/5951529
+# https://github.com/MasterOdin/pylint_runner
+- pylint_runner
+- pyroma -n 10 .
+- vulture .
+
+deploy:
+  provider: pypi
+  user: Sasha_Chernykh
+  password:
+    # Get secret key on Windows:
+    # https://github.com/travis-ci/travis-ci/issues/7327
+    secure: >
+      "STEQSQyZCYkJ9NI2+cemIpUgEExdyNg8V8ZB3LRShAgv8yqq6yk97wG+tQm3/
+      qOQagUqmhdPdRPHLDFUXtkNf+Ahf9PLO3n+z3mNyeVYlT9/qO2NkRDJ3g2Q/
+      MCUkL0XXPtNMT6FuOKudSsWghCdw1Ze/o5LB7Nxxu9T/
+      5nxvz3iOgfA+tFsnZLTXmnJXT9JxcCU3GGam3WEI+IL5VljUDWQAoqXbnifRSmFFRM8iZap22e6/
+      mu2oWMXPgkJ2wrWTD0UiAstLk5uPwtcq19yakaG8dy62hpiB+Azv1hmRtmxvC+OWt2zZ/
+      4yeVD0Zpe4B93d6ahmZu7qqrFaPQeLUVqVotQnWsrwtubGQl4G7wcKlS5dV3rzZh8xBAyILo4tOcRRz1escV9
+      XgN0GIWSAb2Cl8O4xXTxG7BVnZ7VQsIXPQiWkBNvojV1rliOtGdvmz7fe9Eg+
+      dPgrVXbHYvZet2gjRyvvH2kgt7sF7e4Nf0FW5o3HLV3eJgJZwMtWxaYp2QBSvow1moKknXU33Rpif2
+      kvmkln4WcLej6t2CdSDcgwjrGHTdspzzRURJhmsNY9U0Czzsbu4igCXocFU7sLcRyok6yOCPlqn4IdFWmbLCLT/
+      j6jAVom8ThojWbgzukS+XvuJlaPUI4bOU52KLxzEhgGNRU5I7W8+0fTXNFKbqE="
+  on:
+    tags: true
+  distributions: bdist_wheel
