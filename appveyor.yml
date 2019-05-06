@@ -7,20 +7,21 @@ environment:
 
 init:
 - SET PATH=%PATH%;%PYTHON%;%PYTHON%\Scripts
-- set PYTHONIOENCODING=utf-8
+- SET PYTHONIOENCODING=utf-8
 
 install:
 # pip upgading required, because otherwise AppVeyor failed, compare:
 # https://ci.appveyor.com/project/Kristinita/erichek/build/1.0.34
 # https://ci.appveyor.com/project/Kristinita/erichek/build/1.0.33
-- python -m pip install --upgrade pip
+- "%PYTHON%\\python -m pip install --upgrade pip"
 # Temporary hack for Gevent:
 # https://github.com/getlogbook/logbook/issues/270
 # https://github.com/gevent/gevent/issues/1260
-- 'pip install -U --force-reinstall --no-binary :all: gevent'
+- 'pip3 install -U --force-reinstall --no-binary :all: gevent'
 # Needs “-U”, because pyroma works incorrect in old setuptools versions:
 # https://github.com/regebro/pyroma/issues/16#issuecomment-362795949
-- pip install -U flake8 pydocstyle pylint_runner pyroma setuptools twine vulture wheel
+- pip3 install -U flake8 pydocstyle pylint_runner pyroma setuptools twine vulture wheel
+- pip install -r requirements.txt
 
 build_script:
 - flake8 .

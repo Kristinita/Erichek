@@ -12,6 +12,10 @@ install:
 # https://stackoverflow.com/a/26737258/5951529
 # https://dustingram.com/articles/2018/03/16/markdown-descriptions-on-pypi/
 - pip install -U flake8 pydocstyle pylint_runner pyroma setuptools twine vulture wheel
+# [NOTE] Install dependencies from requirements.txt, because pylint required them:
+# https://stackoverflow.com/a/15593865/5951529
+# https://travis-ci.org/Kristinita/Erichek/builds/528699882
+- pip install -r requirements.txt
 
 script:
 - flake8 .
