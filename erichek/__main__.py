@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Author: SashaChernykh
 # @Date: 2018-01-22 07:32:05
-# @Last Modified time: 2019-05-04 09:16:54
+# @Last Modified time: 2019-05-14 18:02:37
 """Run tests.
 
 Main file for running Erichek tests.

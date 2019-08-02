@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Author: SashaChernykh
 # @Date: 2018-01-22 19:58:48
-# @Last Modified time: 2019-05-04 09:21:46
+# @Last Modified time: 2019-08-02 16:08:44
 """Regex Checker.
 
 Check, if regexes contains in each line of package for Eric room.
@@ -23,11 +23,27 @@ from erichek.eric_config import pyfancy_error
 from erichek.eric_config import pyfancy_notice
 from erichek.eric_config import pyfancy_warning
 
-# Replacing
-# Add missing dot
+###################
+# Regex templates #
+###################
+# Add missing question dot
 ADD_DOT = r'\1\5.\6'
-# Remove extra dot
+# Add missing comment dot
+ADD_COMMENT_DOT_REPLACE = r'\1.'
+# Add missing comment dot find pattern
+# [LEARN][PYTHON] Line continuation for long regex:
+# https://stackoverflow.com/a/33211609/5951529
+# [FIXME] Multiline regexes doesn't work in this case
+# [NOTE] No “[^.!?…]+?” in pattern, because “…”, “!” and “?”
+# symbols from citations, not from real comments:
+# [FIXME] Create regex, that ignore content in «quotes»
+ADD_COMMENT_DOT_FIND = r'(\*-(ex|info|kns|lang|marge|npt|one|tao)-(([a-z]{2,3}-)?)((http.+\.(apng|bmp|gif|jpeg|jpg|png|svg) )?)[^.*]+\.([^.*]+))(?=\*)'
+# Remove extra question dot
 REMOVE_DOT = r'\1\5'
+# Remove extra comment dot find pattern
+REMOVE_COMMENT_DOT_FIND = r'(\*-(ex|info|kns|lang|marge|npt|one|tao)-(([a-z]{2,3}-)?)((http.+\.(apng|bmp|gif|jpeg|jpg|png) )?)[^.]+?)\.(?=\*)'
+# Remove extra comment dot
+REMOVE_COMMENT_DOT_REPLACE = r'\1'
 
 
 def eric_initial_function():
@@ -183,9 +199,15 @@ def eric_any_replace(regex_find, regex_essence, regex_replace):
                         regex_find,
                         regex_replace,
                         data,
-                        # Multiline flag, that works start-of-line anchor:
+                        # [LEARN][PYTHON] Multiline flag, that works start-of-line anchor:
                         # https://stackoverflow.com/a/17649039/5951529
-                        flags=regex.M))
+                        # [LEARN][PYTHON] Verbose flag — split long regular expression:
+                        # https://stackoverflow.com/a/23911814/5951529
+                        # [INFO] Spaces doesn't work for VERBOSE:
+                        # https://stackoverflow.com/a/13761776/5951529
+                        # [LEARN][PYTHON] Use multiple flags:
+                        # https://stackoverflow.com/a/30651316/5951529
+                        flags=regex.M | regex.X))
                 file_again.truncate()
                 # [DEPRECATED]
                 # “So to open a file, process its contents, and make sure to close it”
@@ -203,11 +225,11 @@ def eric_answers():
 
 
 def eric_proofs():
-    """Check, that “*-proof-”, “*-page-” or “*-video-” exist in each line.
+    """Check, that “*-proof-”, “*-page-”, “*-audio-” or “*-video-” exist in each line.
 
     https://regex101.com/r/VhZOOE/3/
     """
-    yield from eric_all(r'\*-(page|proof|video)-.', 'proof')
+    yield from eric_all(r'\*-(audio|page|proof|video)-.', 'proof')
 
 
 def eric_wikipedia():
@@ -232,12 +254,12 @@ def eric_add_question_dot():
 def eric_add_comment_dot():
     """Check and add final dot to comment.
 
-    https://regex101.com/r/SH9KBA/2
+    https://regex101.com/r/SH9KBA/6
     """
     yield from eric_any_replace(
-        r'(\*-info-((http.+\.(apng|bmp|gif|jpeg|jpg|png|svg) )?)[^.!?…*]+\.)([^.!?…*]+)(\*)',
+        ADD_COMMENT_DOT_FIND,
         'in end of the comment missing dot',
-        ADD_DOT)
+        ADD_COMMENT_DOT_REPLACE)
 
 
 def eric_remove_question_dot():
@@ -254,9 +276,9 @@ def eric_remove_question_dot():
 def eric_remove_comment_dot():
     """Check and remove extra dot in comment.
 
-    https://regex101.com/r/M5EKdY/4
+    https://regex101.com/r/M5EKdY/8
     """
     yield from eric_any_replace(
-        r'(\*-info-((http.+\.(apng|bmp|gif|jpeg|jpg|png) )?)[^.!?…]+?)\.(\*-)',
+        REMOVE_COMMENT_DOT_FIND,
         'in end of the comment extra dot',
-        REMOVE_DOT)
+        REMOVE_COMMENT_DOT_REPLACE)
