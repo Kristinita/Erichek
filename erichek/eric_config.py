@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Author: Kristinita
 # @Date: 2018-01-02 08:35:59
-# @Last Modified time: 2019-05-06 10:37:04
+# @Last Modified time: 2019-08-02 16:20:40
 # For pydocstyle:
 # D301: Use r""", if any backslashes in a docstring
 r"""Patorjk-HeX ASCII-art font.
@@ -146,6 +146,7 @@ def logbook_initial(level):
 
     Arguments:
         level {int} -- Logbook level
+
     """
     logbook.StreamHandler(sys.stdout, level).push_application()
 
@@ -245,6 +246,7 @@ def pyfancy_function(level_argument, pyfancy_wrapper, pyfancy_variable):
         level_argument {func} -- Logbook level, debug, notice etc.
         pyfancy_wrapper {func} -- colors and bold for logging text
         pyfancy_variable {str} -- logging text
+
     """
     level_argument(pyfancy_wrapper.add(pyfancy_variable))
 

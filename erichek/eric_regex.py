@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Author: SashaChernykh
 # @Date: 2018-01-22 19:58:48
-# @Last Modified time: 2019-08-02 16:08:44
+# @Last Modified time: 2019-08-02 16:20:07
 """Regex Checker.
 
 Check, if regexes contains in each line of package for Eric room.
@@ -108,6 +108,7 @@ def eric_all(regex_find, regex_essence):
     Arguments:
         regex_find {str} -- regex, that erichek find in each line
         regex_essence {str} -- essense, that erichek find
+
     """
     for filename_pylint, pylint_list in eric_initial_function():
         # List comprehension, if list item contain regex.
@@ -162,6 +163,7 @@ def eric_any_find(regex_find, regex_essence):
     Arguments:
         regex_find {str} -- regex, that erichek find in each line
         regex_essence {str} -- essense, that erichek find
+
     """
     for filename_pylint, entrance_bad_list in eric_any(
             regex_find, regex_essence):
@@ -179,6 +181,7 @@ def eric_any_replace(regex_find, regex_essence, regex_replace):
         regex_find {str} -- regex, that erichek find in each line
         regex_essence {str} -- essense, that erichek find
         regex_replace {str} -- regex for replacing
+
     """
     for filename_pylint, entrance_bad_list in eric_any(
             regex_find, regex_essence):
