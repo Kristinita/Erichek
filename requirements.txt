@@ -7,7 +7,7 @@ fake_useragent==0.1.11
 grequests==0.6.0
 logbook==1.5.3
 lxml==4.5.0
-pyfancy
+pyfancy==2.4.5
 pyfiglet
 pyperclip
 regex
