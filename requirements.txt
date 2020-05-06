@@ -11,5 +11,5 @@ pyfancy==2.4.5
 pyfiglet==0.8.post1
 pyperclip==1.8.0
 regex==2020.4.4
-sorcery
+sorcery==0.2.1
 termcolor
