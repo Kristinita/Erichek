@@ -4,7 +4,7 @@ clize==4.1.1
 colorama==0.4.3
 delegator.py==0.1.1
 fake_useragent==0.1.11
-grequests
+grequests==0.6.0
 logbook
 lxml
 pyfancy
