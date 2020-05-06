@@ -2,7 +2,7 @@ beautifulsoup4==4.9.0
 chardet==3.0.4
 clize==4.1.1
 colorama==0.4.3
-delegator.py
+delegator.py==0.1.1
 fake_useragent
 grequests
 logbook
