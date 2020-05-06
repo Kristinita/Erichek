@@ -6,7 +6,7 @@ delegator.py==0.1.1
 fake_useragent==0.1.11
 grequests==0.6.0
 logbook==1.5.3
-lxml
+lxml==4.5.0
 pyfancy
 pyfiglet
 pyperclip
