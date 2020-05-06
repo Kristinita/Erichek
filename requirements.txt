@@ -3,7 +3,7 @@ chardet==3.0.4
 clize==4.1.1
 colorama==0.4.3
 delegator.py==0.1.1
-fake_useragent
+fake_useragent==0.1.11
 grequests
 logbook
 lxml
