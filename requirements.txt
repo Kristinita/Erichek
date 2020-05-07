@@ -10,6 +10,6 @@ lxml
 pyfancy
 pyfiglet
 pyperclip
-regex
+regex==2020.5.7
 sorcery
 termcolor
