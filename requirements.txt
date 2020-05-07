@@ -12,4 +12,4 @@ pyfiglet
 pyperclip
 regex
 sorcery
-termcolor
+termcolor==1.1.0
