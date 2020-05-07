@@ -8,7 +8,7 @@ grequests
 logbook
 lxml
 pyfancy
-pyfiglet
+pyfiglet==0.8.post1
 pyperclip
 regex
 sorcery
