@@ -9,7 +9,7 @@ logbook
 lxml
 pyfancy
 pyfiglet
-pyperclip
+pyperclip==1.8.0
 regex
 sorcery
 termcolor
