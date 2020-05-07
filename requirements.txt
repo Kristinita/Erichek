@@ -1,6 +1,6 @@
 beautifulsoup4
 chardet
-clize
+clize==4.1.1
 colorama
 delegator.py
 fake_useragent
