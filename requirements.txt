@@ -3,7 +3,7 @@ chardet
 clize
 colorama
 delegator.py
-fake_useragent
+fake_useragent==0.1.11
 grequests
 logbook
 lxml
