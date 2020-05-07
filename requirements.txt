@@ -1,7 +1,7 @@
 beautifulsoup4
 chardet
 clize
-colorama
+colorama==0.4.3
 delegator.py
 fake_useragent
 grequests
