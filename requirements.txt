@@ -11,5 +11,5 @@ pyfancy
 pyfiglet
 pyperclip
 regex
-sorcery
+sorcery==0.2.1
 termcolor
