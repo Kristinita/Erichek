@@ -5,7 +5,7 @@ colorama
 delegator.py
 fake_useragent
 grequests
-logbook
+logbook==1.5.3
 lxml
 pyfancy
 pyfiglet
