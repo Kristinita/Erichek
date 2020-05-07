@@ -1,5 +1,5 @@
 beautifulsoup4
-chardet
+chardet==3.0.4
 clize
 colorama
 delegator.py
