@@ -4,7 +4,7 @@ clize
 colorama
 delegator.py
 fake_useragent
-grequests
+grequests==0.6.0
 logbook
 lxml
 pyfancy
